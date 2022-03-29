@@ -27,39 +27,6 @@ body
     overflow: hidden;
 }
 
-._hide
-{
-    display: none !important;
-}
-
-
-._content
-{
-    top: 0px;
-    left : 0px;
-
-    transform: none;
-
-}
-
-._container
-{
-    width: 100vw !important;
-    height: 100vh !important;
-
-    display : flex;
-    justify-content: center;
-    align-items: center;
-}
-
-canvas
-{
-    width: calc(100vw - 2 * 2px) !important;
-    height : calc((100vw) * 0.45 - 2 * 2px) !important;
-    border: 2px solid #ee0022 !important;
-
-    display: block !important;
-}
 
 ._BOX_0_
 {
@@ -105,102 +72,9 @@ canvas
 
 
 
-
-
-._full
-{
-
-
-    padding : 8px;
-    font-size:  15px;
-    font-weight:  bold;
-    text-align: center;
-    font-family : "Courier New";
-    Color : #eee;
-
-    background-color: rgb(30, 30, 30);
-    position : absolute;
-
-
-    right: 5px;
-    bottom: 8px;
-    z-index: 10;
-
-    user-select: none;
-
-    box-shadow: 0px 4px 0px 0px #444;
-}
-._full:hover
-{
-    background-color: rgb(40, 40, 40);
-}
-._full:active
-{
-    transform: translate(0px , 2px);
-    box-shadow: 0px 2px 0px 0px #444;
-}
-
 </style>
 
 
-<script>
-console.log("..........");
-
-let _BOX_0_0_;
-
-
-let loading_triggger = false;
-let extract_triggger = false;
-
-
-
-function _progress(progress)
-{
-    if (!document.querySelector("._BOX_0_")) 
-    {
-        let _BOX_0_ = document.createElement("div");
-        _BOX_0_.setAttribute("class" , "_BOX_0_");
-
-
-        _BOX_0_0_ = document.createElement("div");
-        _BOX_0_0_.setAttribute("class" , "_BOX_0_0_");
-
-
-        _BOX_0_.appendChild(_BOX_0_0_);
-        document.body.appendChild(_BOX_0_);
-
-
-    }
-
-
-    let _stage = "preparing";
-    if(progress > 0.02)
-    {
-        _stage = "loading...  " + Math.floor((progress)/0.9  * 100).toString() + "%";
-    }
-    if(progress >= 0.89)
-    {
-        _stage = "extracting...";
-    }
-
-
-    console.log(progress);
-    _BOX_0_0_.innerHTML = ((progress / 0.9) * 5 ).toFixed(2).toString() + " mb / 5.00 mb" + "<br>" + _stage;
-
-    
-    if(progress == 1)
-    {
-        document.querySelector("._BOX_0_").style.display = "none";
-    }
-
-
-}
-
-</script>
-    
-    
-    
-    
     
     
     
